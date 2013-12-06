@@ -10,6 +10,14 @@ use Symfony\Component\Routing\Router;
 
 class SymfonyEvent extends AthleticEvent
 {
+    protected $assemblyRouter;
+
+    public function classSetUp()
+    {
+        // For assembling, we keep the same router around.
+        $this->assemblyRouter = $this->configureRouter();
+    }
+
     /**
      * @iterations 1000
      */
@@ -37,8 +45,7 @@ class SymfonyEvent extends AthleticEvent
      */
     public function assemble()
     {
-        $router = $this->configureRouter();
-        $router->generate('blog/delete', ['id' => 1]);
+        $this->assemblyRouter->generate('blog/delete', ['id' => 1]);
     }
 
     /**

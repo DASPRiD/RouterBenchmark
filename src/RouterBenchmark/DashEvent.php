@@ -12,8 +12,7 @@ use Zend\ServiceManager\ServiceManagerAwareInterface;
 class DashEvent extends AthleticEvent
 {
     protected $serviceManager;
-    protected $reflectionClass;
-    protected $reflectionProperty;
+    protected $assemblyRouter;
 
     public function classSetUp()
     {
@@ -54,6 +53,9 @@ class DashEvent extends AthleticEvent
         );
 
         $this->serviceManager = $serviceManager;
+
+        // For assembling, we keep the same router around.
+        $this->assemblyRouter = $this->serviceManager->get('Dash\Router\Http\Router');
     }
 
     /**
@@ -85,7 +87,6 @@ class DashEvent extends AthleticEvent
      */
     public function assemble()
     {
-        $router = $this->serviceManager->get('Dash\Router\Http\Router');
-        $router->assemble(['id' => 1], ['name' => 'blog/delete']);
+        $this->assemblyRouter->assemble(['id' => 1], ['name' => 'blog/delete']);
     }
 }

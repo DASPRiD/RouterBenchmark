@@ -130,6 +130,14 @@ class Zf2Event extends AthleticEvent
         ],
     ];
 
+    protected $assemblyRouter;
+
+    public function classSetUp()
+    {
+        // For assembling, we keep the same router around.
+        $this->assemblyRouter = TreeRouteStack::factory(self::$config);
+    }
+
     /**
      * @iterations 1000
      */
@@ -159,7 +167,6 @@ class Zf2Event extends AthleticEvent
      */
     public function assemble()
     {
-        $router = TreeRouteStack::factory(self::$config);
-        $router->assemble(['id' => 1], ['name' => 'blog/delete']);
+        $this->assemblyRouter->assemble(['id' => 1], ['name' => 'blog/delete']);
     }
 }
