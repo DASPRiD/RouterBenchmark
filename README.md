@@ -4,7 +4,7 @@ Router performance benchmark
 **These benchmarks are purely informational, to help identify ways we can**
 **improve overall framework performance and should not be used to persuade**
 **your framework decisions in any way. Router performance alone is in no way**
-**indicitive of overall framework performance, and is extremely unlikely to be**
+**indicative of overall framework performance, and is extremely unlikely to be**
 **a bottleneck in any project or application.**
 
 This is a simple suite to compare performance of different routers. For each
