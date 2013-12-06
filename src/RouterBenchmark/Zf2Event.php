@@ -153,4 +153,13 @@ class Zf2Event extends AthleticEvent
         $router = TreeRouteStack::factory(self::$config);
         $router->match($request);
     }
+
+    /**
+     * @iterations 1000
+     */
+    public function assemble()
+    {
+        $router = TreeRouteStack::factory(self::$config);
+        $router->assemble(['id' => 1], ['name' => 'blog/delete']);
+    }
 }

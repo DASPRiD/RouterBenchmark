@@ -20,22 +20,25 @@ On an Intel Core i7-3930K CPU @ 3.20GHz, the following results were achieved:
 RouterBenchmark\DashEvent
     Method Name   Iterations    Average Time      Ops/second
     ----------  ------------  --------------    -------------
-    firstMatch: [1,000     ] [0.0003087394238] [3,238.97735]
-    lastMatch : [1,000     ] [0.0003219761848] [3,105.81977]
+    firstMatch: [1,000     ] [0.0003096990585] [3,228.94104]
+    lastMatch : [1,000     ] [0.0003116433620] [3,208.79608]
+    assemble  : [1,000     ] [0.0004264097214] [2,345.16229]
 
 
 RouterBenchmark\SymfonyEvent
     Method Name   Iterations    Average Time      Ops/second
     ----------  ------------  --------------    -------------
-    firstMatch: [1,000     ] [0.0011287193298] [885.95984]
-    lastMatch : [1,000     ] [0.0006017644405] [1,661.77981]
+    firstMatch: [1,000     ] [0.0011225581169] [890.82247]
+    lastMatch : [1,000     ] [0.0005912811756] [1,691.24275]
+    assemble  : [1,000     ] [0.0004174382687] [2,395.56379]
 
 
 RouterBenchmark\Zf2Event
     Method Name   Iterations    Average Time      Ops/second
     ----------  ------------  --------------    -------------
-    firstMatch: [1,000     ] [0.0013284144402] [752.77712]
-    lastMatch : [1,000     ] [0.0010156590939] [984.58233]
+    firstMatch: [1,000     ] [0.0013013062477] [768.45862]
+    lastMatch : [1,000     ] [0.0009987037182] [1,001.29796]
+    assemble  : [1,000     ] [0.0011002471447] [908.88670]
 ```
 
 You can run the tests yourself with the following command:

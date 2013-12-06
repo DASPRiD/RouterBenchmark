@@ -79,4 +79,13 @@ class DashEvent extends AthleticEvent
         $router = $this->serviceManager->get('Dash\Router\Http\Router');
         $router->match($request);
     }
+
+    /**
+     * @iterations 1000
+     */
+    public function assemble()
+    {
+        $router = $this->serviceManager->get('Dash\Router\Http\Router');
+        $router->assemble(['id' => 1], ['name' => 'blog/delete']);
+    }
 }

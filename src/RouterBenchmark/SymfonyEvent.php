@@ -33,6 +33,15 @@ class SymfonyEvent extends AthleticEvent
     }
 
     /**
+     * @iterations 1000
+     */
+    public function assemble()
+    {
+        $router = $this->configureRouter();
+        $router->generate('blog/delete', ['id' => 1]);
+    }
+
+    /**
      * @return Router
      */
     private function configureRouter()
@@ -41,16 +50,16 @@ class SymfonyEvent extends AthleticEvent
             new ClosureLoader(),
             function () {
                 $collection = new RouteCollection();
-                $collection->add('home', new Route('/', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user', new Route('/user', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user/create', new Route('/user/create', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user/edit', new Route('/user/edit/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('user/delete', new Route('/user/delete/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('blog', new Route('/user', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/article', new Route('/blog/{slug}', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/create', new Route('/blog/create', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/edit', new Route('/blog/edit/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('blog/delete', new Route('/blog/delete/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
+                $collection->add('home', new Route('/', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('user', new Route('/user', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('user/create', new Route('/user/create', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('user/edit', new Route('/user/edit/{id}', ['controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+']]));
+                $collection->add('user/delete', new Route('/user/delete/{id}', ['controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+']]));
+                $collection->add('blog', new Route('/user', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('blog/article', new Route('/blog/{slug}', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('blog/create', new Route('/blog/create', ['controller' => 'bar', 'action' => 'foo']));
+                $collection->add('blog/edit', new Route('/blog/edit/{id}', ['controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+']]));
+                $collection->add('blog/delete', new Route('/blog/delete/{id}', ['controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+']]));
 
                 return $collection;
             }
