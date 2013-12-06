@@ -11,6 +11,9 @@ This is a simple suite to compare performance of different routers. For each
 router, the exact same routing structure is created. Then, the performance for
 both the first route matching and the last route matching is tested.
 
+To properly simulate per-request matching, as this is what usually happens,
+every router is destroyed after each iterations and completely re-created again.
+
 On an Intel Core i7-3930K CPU @ 3.20GHz, the following results were achieved:
 
 ```
