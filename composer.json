@@ -1,0 +1,27 @@
+{
+    "name": "dasprid/router-benchmark",
+    "description": "Router Benchmark",
+    "license" : "BSD-2-Clause",
+    "homepage": "https://github.com/DASPRiD/RouterBenchmark",
+    "authors": [
+        {
+            "name": "DASPRiD",
+            "email": "mail@dasprids.de"
+        }
+    ],
+    "require": {
+        "athletic/athletic": "v0.1.7",
+        "dasprid/dash": "dev-master",
+        "zendframework/zend-modulemanager": "~2.2.5",
+        "zendframework/zend-mvc": "~2.2.5",
+        "symfony/routing": "2.5.*@dev",
+        "symfony/config": "2.5.*@dev",
+        "symfony/expression-language": "2.5.*@dev",
+        "symfony/http-foundation": "2.5.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "RouterBenchmark\\": "src/"
+        }
+    }
+}
