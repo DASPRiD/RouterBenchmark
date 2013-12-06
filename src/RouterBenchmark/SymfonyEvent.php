@@ -17,24 +17,7 @@ class SymfonyEvent extends AthleticEvent
     {
         $request = HttpRequest::create('http://example.com/blog/delete/1');
 
-        $router = new Router(
-            new ClosureLoader(),
-            function () {
-                $collection = new RouteCollection();
-                $collection->add('home', new Route('/', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user', new Route('/user', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user/create', new Route('/user/create', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('user/edit', new Route('/user/edit/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('user/delete', new Route('/user/delete/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('blog', new Route('/user', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/article', new Route('/blog/{slug}', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/create', new Route('/blog/create', array('controller' => 'bar', 'action' => 'foo')));
-                $collection->add('blog/edit', new Route('/blog/edit/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-                $collection->add('blog/delete', new Route('/blog/delete/{id}', array('controller' => 'bar', 'action' => 'foo', 'requirements' => ['id' => '\d+'])));
-
-                return $collection;
-            }
-        );
+        $router = $this->configureRouter();
         $router->matchRequest($request);
     }
 
@@ -45,6 +28,15 @@ class SymfonyEvent extends AthleticEvent
     {
         $request = HttpRequest::create('http://example.com/');
 
+        $router = $this->configureRouter();
+        $router->matchRequest($request);
+    }
+
+    /**
+     * @return Router
+     */
+    private function configureRouter()
+    {
         $router = new Router(
             new ClosureLoader(),
             function () {
@@ -63,6 +55,6 @@ class SymfonyEvent extends AthleticEvent
                 return $collection;
             }
         );
-        $router->matchRequest($request);
+        return $router;
     }
 }
